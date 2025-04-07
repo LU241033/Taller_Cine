@@ -6,15 +6,21 @@ package autonoma.TallerCine.models;
 
 /**
  *
- * @author valej
+ * @author Alejandra
+ * @since 20250405
+ * @version 1.0
  */
-public class FuncionNoche {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+/**
+ * Función de tipo "Noche", sin descuento.
+ */
+public class FuncionNoche extends Funcion {
+    public FuncionNoche() {
+        this.tipo = "Noche";
+        this.porcentajeDescuento = 0.0;
     }
-    
+
+    @Override
+    public double getObtenerDescuento() {
+        return porcentajeDescuento;
+    }
 }
