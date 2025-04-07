@@ -7,7 +7,7 @@ package autonoma.TallerCine.models;
 /**
  
  * @author Luisa Fernanda Henao Posada
- * @since 20250704
+ * @since 20250405
  * @version 1.0.0
  */
 
