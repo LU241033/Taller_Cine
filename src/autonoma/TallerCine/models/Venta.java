@@ -3,6 +3,7 @@ package autonoma.TallerCine.models;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author Gilary
@@ -48,10 +49,16 @@ public class Venta {
      * @return Factura generada.
      */
     public Factura generarFactura() {
-        StringBuilder detalle = new StringBuilder();
-        for (Boleta b : boletas) {
-            detalle.append("Pelicula: ").append(b.pelicula).append(" - Costo: ").append(b.getCostoFinal()).append("\n");
-        }
-        return new Factura("F-" + System.currentTimeMillis(), detalle.toString());
+    String detalle = "";
+    for (Boleta b : boletas) {
+        detalle += "Pelicula: " + b.pelicula + " - Costo: " + b.getCostoFinal() + "\n";
     }
+
+    // Generar un número aleatorio entre 1000 y 9999
+    Random rand = new Random();
+    int numeroAleatorio = rand.nextInt(9000) + 1000; // Rango [1000, 9999]
+    String numeroFactura = "F-" + numeroAleatorio;
+
+    return new Factura(numeroFactura, detalle);
+}
 }
